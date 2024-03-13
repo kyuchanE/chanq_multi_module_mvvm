@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Chanq_mulit_module_mvvm"
-include ':app'
+include(":app")
+include(":data")
+include(":domain")
