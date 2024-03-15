@@ -68,4 +68,8 @@ object Dependency {
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
     }
 
+    object Serialization {
+        const val KOTLINX_SERIALIZATION_JSON = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0"
+    }
+
 }

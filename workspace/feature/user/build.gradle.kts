@@ -1,31 +1,31 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.chanq_mulit_module_mvvm"
+    namespace = "dev.kyu.user"
     compileSdk = SdkVersions.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.chanq_mulit_module_mvvm"
         minSdk = SdkVersions.minSdk
         targetSdk = SdkVersions.targetSdk
-        versionCode = AppVersions.androidVersionCode
-        versionName = AppVersions.androidVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -39,16 +39,17 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:data"))
-    implementation(project(":core:domain"))
+
     implementation(project(":core:ui"))
-    implementation(project(":feature:lottery"))
-    implementation(project(":feature:user"))
+    implementation(project(":core:domain"))
 
     implementation(Dependency.KTX.CORE)
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation(Dependency.Test.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)

@@ -1,31 +1,31 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.chanq_mulit_module_mvvm"
+    namespace = "dev.kyu.data"
     compileSdk = SdkVersions.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.chanq_mulit_module_mvvm"
         minSdk = SdkVersions.minSdk
         targetSdk = SdkVersions.targetSdk
-        versionCode = AppVersions.androidVersionCode
-        versionName = AppVersions.androidVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -33,17 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(":core:data"))
     implementation(project(":core:domain"))
-    implementation(project(":core:ui"))
-    implementation(project(":feature:lottery"))
-    implementation(project(":feature:user"))
 
     implementation(Dependency.KTX.CORE)
     implementation(Dependency.AndroidX.APP_COMPAT)
@@ -68,17 +61,11 @@ dependencies {
     implementation(Dependency.OkHttp.LOGGER_INTERCEPTOR)
     implementation(Dependency.OkHttp.OKHTTP_PROFILER)
 
-    // ViewModel
-    implementation(Dependency.AndroidX.LIFECYCLE_VIEW_MODEL)
-    implementation(Dependency.AndroidX.ACTIVITY)
-    implementation(Dependency.AndroidX.FRAGMENT)
-
-    // LiveData
-    implementation(Dependency.AndroidX.LIFECYCLE_LIVEDATA)
-
     // Coroutines
     implementation(Dependency.Coroutines.COROUTINES)
 
+    // Serialization
+//    implementation(Dependency.Serialization.KOTLINX_SERIALIZATION_JSON)
 }
 
 kapt {

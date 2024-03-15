@@ -7,31 +7,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:background="@color/white"
-        tools:context=".view.MainActivity">
+        android:background="@color/white">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et_lottery"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:text="My Tutorial!!!"
-            android:textColor="@color/black"
-            android:textSize="25dp"/>
+            android:hint="Num"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_lottery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="enter lottery activity"
-            android:layout_marginTop="25dp"/>
+            android:text="Lottery show"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_random_user"
+        <TextView
+            android:id="@+id/tv_lottery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="enter random user activity"
-            android:layout_marginTop="25dp"/>
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
+
 </layout>
