@@ -50,3 +50,17 @@ Now in Android와 같이 추후 UI도 모듈단위로 분리하여 관리 진행
 <br/>
 
 ---
+
+<br/>
+
+### 활용 예제
+
+
+- 날씨 예제
+CleanArchitecture + Multi Module + MVVM + DI 활용한 예제 작업 진행 중  <br/>
+
+https://github.com/kyuchanE/kiu_MerryWeather
+
+<br/>
+
+---
