@@ -9,7 +9,7 @@
 
 <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*aIux1an8zPUXIhTLY7psfw.png">
 
-https://developer.android.com/series/now-in-android?hl=ko
+https://developer.android.com/series/now-in-android?hl=ko <br/>
 https://github.com/android/nowinandroid
 
 <br/>
@@ -37,7 +37,8 @@ App Layer는 Domain, Data Layer를 대상으로 의존성을 가지고 있다.
 Data를 조회, 저장, 수정 역할
 Domain Layer를 대상으로 의존성을 갖는다.
 
-
+<br/>
+<br/>
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtTbBP%2FbtsFLS8JrNO%2FP9r8ATx82STVaI75KrcoVk%2Fimg.png">
 
