@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.kyu.data.di.qualifier.LotteryService
 import dev.kyu.data.di.qualifier.RandomUserService
+import dev.kyu.data.utils.NetworkConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -44,7 +45,7 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("http://www.dhlottery.co.kr")
+        .baseUrl(NetworkConfig.lotteryBaseUrl)
         .client(okHttpClient)
         .addConverterFactory(gsonConverterFactory)
         .build()
@@ -56,7 +57,7 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://randomuser.me")
+        .baseUrl(NetworkConfig.randomUserBaseUrl)
         .client(okHttpClient)
         .addConverterFactory(gsonConverterFactory)
         .build()

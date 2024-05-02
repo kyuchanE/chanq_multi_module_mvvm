@@ -4,7 +4,6 @@ import android.content.Intent
 import com.example.chanq_mulit_module_mvvm.R
 import dev.kyu.ui.BaseActivity
 import com.example.chanq_mulit_module_mvvm.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 import dev.kyu.lottery.LotteryInfoActivity
 import dev.kyu.user.UserInfoActivity
 
