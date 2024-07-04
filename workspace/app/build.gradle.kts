@@ -41,6 +41,7 @@ android {
 dependencies {
 
     implementation(project(":core:domain"))
+    implementation(project(":core:data"))
     implementation(project(":core:ui"))
     implementation(project(":feature:lottery"))
     implementation(project(":feature:user"))

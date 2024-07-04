@@ -35,6 +35,7 @@ object Dependency {
 
     object Coroutines {
         const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+        const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2"
     }
 
     object KTX {

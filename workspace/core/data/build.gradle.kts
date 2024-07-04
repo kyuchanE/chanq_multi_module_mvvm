@@ -42,9 +42,13 @@ dependencies {
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
+
+    // test
     testImplementation(Dependency.Test.JUNIT)
+    testImplementation(Dependency.Coroutines.COROUTINES_TEST)
     androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+
 
     // dagger hilt
     implementation(Dependency.DaggerHilt.DAGGER_HILT)

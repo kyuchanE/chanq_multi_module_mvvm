@@ -8,7 +8,6 @@ import javax.inject.Inject
 class GetLotteryRepoUseCase @Inject constructor(
     private val lotteryRepository: LotteryRepository
 ) {
-
     suspend operator fun invoke(drwNo: String): Flow<LotteryData?> =
         lotteryRepository.getLottery(drwNo)
 
