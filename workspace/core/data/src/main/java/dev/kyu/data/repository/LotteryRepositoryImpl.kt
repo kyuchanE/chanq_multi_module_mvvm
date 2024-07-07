@@ -1,5 +1,6 @@
 package dev.kyu.data.repository
 
+import android.util.Log
 import dev.kyu.data.api.LotteryApi
 import dev.kyu.data.utils.NetworkConfig
 import dev.kyu.domain.model.LotteryData

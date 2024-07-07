@@ -43,14 +43,19 @@ dependencies {
 
     implementation(project(":core:ui"))
     implementation(project(":core:domain"))
+    implementation(project(":core:data"))
 
     implementation(Dependency.KTX.CORE)
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.Google.MATERIAL)
     implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
+
+    // test
     testImplementation(Dependency.Test.JUNIT)
+    testImplementation(Dependency.Coroutines.COROUTINES_TEST)
     androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+    testImplementation("com.google.truth:truth:1.4.3")
 
     // dagger hilt
     implementation(Dependency.DaggerHilt.DAGGER_HILT)

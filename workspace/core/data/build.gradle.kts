@@ -48,6 +48,7 @@ dependencies {
     testImplementation(Dependency.Coroutines.COROUTINES_TEST)
     androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+    testImplementation("com.google.truth:truth:1.4.3")
 
 
     // dagger hilt
