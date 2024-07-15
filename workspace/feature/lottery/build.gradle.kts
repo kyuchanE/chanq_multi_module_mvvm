@@ -56,6 +56,7 @@ dependencies {
     androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
     testImplementation("com.google.truth:truth:1.4.3")
+    testImplementation("app.cash.turbine:turbine:1.1.0")
 
     // dagger hilt
     implementation(Dependency.DaggerHilt.DAGGER_HILT)

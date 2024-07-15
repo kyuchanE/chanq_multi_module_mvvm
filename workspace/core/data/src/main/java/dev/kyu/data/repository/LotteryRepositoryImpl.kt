@@ -1,6 +1,5 @@
 package dev.kyu.data.repository
 
-import android.util.Log
 import dev.kyu.data.api.LotteryApi
 import dev.kyu.data.utils.NetworkConfig
 import dev.kyu.domain.model.LotteryData
@@ -13,7 +12,7 @@ class LotteryRepositoryImpl @Inject constructor(
     private val lotteryApi: LotteryApi
 ): LotteryRepository {
 
-    override suspend fun getLottery(
+    override fun getLottery(
         drwNo: String
     ): Flow<LotteryData?> = flow {
         val lotteryResponse = lotteryApi.getLotteryNum(NetworkConfig.lotteryGetNumberMethod, drwNo)

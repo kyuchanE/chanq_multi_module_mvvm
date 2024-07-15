@@ -6,7 +6,7 @@ object FakeLotteryResponse {
 
     fun getFakeData(): LotteryResponse =
         LotteryResponse(
-            returnValue = "success",
+            returnValue = "kyu",
             drwNoDate = "1994-11-13",
             drwNo = 0,
             drwtNo1 = 111,
@@ -16,4 +16,5 @@ object FakeLotteryResponse {
             drwtNo5 = 555,
             drwtNo6 = 666,
         )
+
 }

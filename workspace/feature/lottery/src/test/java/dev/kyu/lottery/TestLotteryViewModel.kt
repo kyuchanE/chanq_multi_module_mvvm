@@ -1,22 +1,20 @@
 package dev.kyu.lottery
 
-import com.google.common.truth.Truth.assertThat
+import app.cash.turbine.test
 import dev.kyu.data.api.LotteryApi
-import dev.kyu.data.api.LotteryTestApi
 import dev.kyu.data.repository.LotteryRepositoryImpl
 import dev.kyu.domain.usecase.lottery.GetLotteryRepoUseCase
+import dev.kyu.lottery.api.LotteryApiTestFail
+import dev.kyu.lottery.api.LotteryApiTestSucceed
 import dev.kyu.lottery.rule.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
-import org.hamcrest.core.IsEqual
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class TestLotteryViewModel {
 
     private lateinit var viewModel: LotteryViewModel
@@ -30,24 +28,47 @@ class TestLotteryViewModel {
 
     @Before
     fun setUp() {
-        lotteryApi = LotteryTestApi()
+        lotteryApi = LotteryApiTestSucceed()
+//        lotteryApi = LotteryApiTestFail()
         lotteryRepository = LotteryRepositoryImpl(lotteryApi)
         getLotteryRepoUseCase = GetLotteryRepoUseCase(lotteryRepository)
         viewModel = LotteryViewModel(getLotteryRepoUseCase)
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun `when succeeded getLotteryRepo expect loadingState changed false true false`() = runTest {
+        viewModel.loadingState.test {
+            viewModel.getLotteryRepo("test")
+
+            assertEquals(false, awaitItem())
+            assertEquals(true, awaitItem())
+            assertEquals(false, awaitItem())
+        }
+    }
+
+    @Test
+    fun `when succeeded getLotteryRepo expect returnValue kyu`() = runTest {
+        viewModel.getLotteryRepo("test")
+
+        viewModel.lotteryRepo.test {
+            assertEquals("kyu", awaitItem().returnValue)
+        }
+    }
+
+    @Test
+    fun `when failed getLotteryRepo expect loadingState changed false true false`() = runTest {
+        viewModel.loadingState.test {
+            viewModel.getLotteryRepo("test")
+
+            assertEquals(false, awaitItem())
+            assertEquals(true, awaitItem())
+            assertEquals(false, awaitItem())
+        }
+    }
+
     @Test
     fun test() = runTest {
 
-        viewModel.getLotteryRepo("test")
-
-        val result = viewModel.loadingState.take(2).toList()
-        val firstResult = result.first()
-        val lastResult = result.last()
-
-        assertThat(firstResult).isEqualTo(false)
-        assertThat(lastResult).isEqualTo(true)
-
     }
+
 }

@@ -3,8 +3,10 @@ package dev.kyu.data.repository
 import dev.kyu.data.api.RandomUserApi
 import dev.kyu.domain.model.RandomUserDomainData
 import dev.kyu.domain.repository.RandomUserRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class RandomUserRepositoryImpl @Inject constructor(
@@ -21,6 +23,6 @@ class RandomUserRepositoryImpl @Inject constructor(
                 )
             }
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
 }

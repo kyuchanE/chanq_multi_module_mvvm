@@ -1,10 +1,13 @@
 package dev.kyu.lottery
 
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dev.kyu.lottery.databinding.ActivityLotteryInfoBinding
 import dev.kyu.ui.BaseActivity
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -29,6 +32,12 @@ class LotteryInfoActivity : BaseActivity<ActivityLotteryInfoBinding>() {
             lotteryViewModel.lotteryRepo.collect {
                 binding.tvLottery.text = "${it.drwtNo1} + ${it.drwtNo2} + " +
                         "${it.drwtNo3}+ ${it.drwtNo4} + ${it.drwtNo5} + ${it.drwtNo6}"
+            }
+        }
+
+        lifecycleScope.launch {
+            lotteryViewModel.loadingState.collect {
+                Log.d("@@@@@@@@" , "loadingState : $it")
             }
         }
     }

@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.kyu.domain.model.LotteryData
 import dev.kyu.domain.usecase.lottery.GetLotteryRepoUseCase
 import dev.kyu.ui.BaseViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -28,17 +29,19 @@ class LotteryViewModel @Inject constructor(
     private val _loadingState: MutableStateFlow<Boolean> = MutableStateFlow(false)
     var loadingState: StateFlow<Boolean> = _loadingState.asStateFlow()
 
-    fun getLotteryRepo(drwNo: String) = viewModelScope.launch {
-        _loadingState.update { true }
-        getLotteryRepoUseCase(drwNo).onStart {
+    private val _lotteryNumStr: MutableStateFlow<String> = MutableStateFlow("")
+    var lotteryNumStr: StateFlow<String> = _lotteryNumStr.asStateFlow()
 
+    fun getLotteryRepo(drwNo: String) = viewModelScope.launch {
+        getLotteryRepoUseCase(drwNo).onStart {
+            _loadingState.update { true }
         }.catch {
             _loadingState.update { false }
-
         }.collectLatest { lotteryData ->
             lotteryData?.let {
                 _loadingState.update { false }
                 _lotteryRepo.emit(it)
+                _lotteryNumStr.emit("${it.drwtNo1} + ${it.drwtNo2} + ${it.drwtNo3}")
             }
         }
     }
