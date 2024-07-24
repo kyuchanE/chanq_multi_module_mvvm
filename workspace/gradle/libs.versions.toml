@@ -1,0 +1,177 @@
+[versions]
+# Androidx
+androidxCoreKtx = "1.13.1"
+androidxAppcompat = "1.6.1"
+androidxConstraintlayout = "2.1.4"
+androidxActivityKtx = "1.7.2"
+androidxFragmentKtx = "1.6.2"
+androidxCoreTesting = "2.2.0"
+androidxTestExtJUnit = "1.1.5"
+androidxTestEspressoCore = "3.5.1"
+# Splash
+splash = "1.0.1"
+# Google
+googleAndroidMaterial = "1.12.0"
+googleTruth = "1.0.1"
+googleGson = "2.10.1"
+# JUnit
+junit = "4.13.2"
+# Truth
+truth = "1.4.3"
+# Turbine
+turbine = "1.1.0"
+#Robolectric
+robolectric = "4.4"
+# Coroutines Test
+coroutinesTest = "1.5.2"
+# OkHttp
+okhttp = "4.10.0"
+okhttpUrlConnection = "4.9.1"
+okhttpLoggingInterceptor = "4.9.2"
+okhttpProfiler = "1.0.8"
+# Retrofit
+retrofit = "2.9.0"
+# DaggerHilt
+daggerHilt = "2.51.1"
+# Moshi
+moshi = "1.12.0"
+# Logger
+logger = "2.2.0"
+# Glide
+glide = "4.15.0"
+glide-transformations = "4.3.0"
+# Hawk
+hawk = "2.0.1"
+# Ted
+tedImagepicker = "1.4.2"
+tedPermission = "3.3.0"
+# DotIndicator
+dotIndicator = "5.0"
+# Firebsae
+firebaseBom = "32.3.1"
+# Lottie
+lottie = "6.4.0"
+
+# Plugins
+androidApplicationPlugin = "8.0.0"
+androidLibraryPlugin = "8.0.0"
+kotlinAndroidPlugin = "1.8.0"
+daggerHiltAndroidPlugin = "2.51.1"
+googleServicesPlugin = "4.3.15"
+activity = "1.9.0"
+
+
+[libraries]
+# Androidx
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidxActivityKtx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragmentKtx" }
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJUnit" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxTestEspressoCore" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+# Google
+google-android-material = { group = "com.google.android.material", name = "material", version.ref = "googleAndroidMaterial" }
+google-truth = { group = "com.google.truth", name = "truth", version.ref = "googleTruth" }
+google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "googleGson" }
+# JUnit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+# Truth
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+# Turbine
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+# Robolectric
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+# Coroutines
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+# OkHttp
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-url-connection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttpUrlConnection" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
+okhttp-profiler = { group= "com.localebro", name = "okhttpprofiler", version.ref = "okhttpProfiler" }
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+# DaggerHilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+# Moshi
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+# Logger
+logger = { group = "com.orhanobut", name = "logger", version.ref = "logger" }
+# Glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+glide-okhttp-integration = { group = "com.github.bumptech.glide", name = "okhttp3-integration", version.ref = "glide" }
+# Hawk
+hawk = { group = "com.orhanobut", name = "hawk", version.ref = "hawk" }
+# Ted
+ted-imagepicker = { group = "io.github.ParkSangGwon", name = "tedimagepicker", version.ref = "tedImagepicker" }
+ted-permission-normal = { group = "io.github.ParkSangGwon", name = "tedpermission-normal", version.ref = "tedPermission" }
+ted-permission-coroutine = { group = "io.github.ParkSangGwon", name = "tedpermission-coroutine", version.ref = "tedPermission" }
+# DotIndicator
+dot-indicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "dotIndicator"}
+# Firebsae
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+# Lottie
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidApplicationPlugin" }
+android-library = { id = "com.android.library", version.ref = "androidLibraryPlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroidPlugin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinAndroidPlugin" }
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHiltAndroidPlugin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServicesPlugin" }
+
+[bundles]
+android = [
+    "androidx-core-ktx",
+    "androidx-appcompat",
+    "androidx-constraintlayout",
+    "androidx-activity-ktx",
+    "androidx-fragment-ktx",
+    "androidx-core-splashscreen",
+    "google-android-material",
+]
+test = [
+    "androidx-arch-core-testing",
+    "androidx-test-ext-junit",
+    "androidx-test-espresso-core",
+    "google-truth",
+    "junit",
+    "robolectric",
+    "coroutines-test",
+]
+network = [
+    "google-gson",
+    "okhttp",
+    "okhttp-url-connection",
+    "okhttp-logging-interceptor",
+    "okhttp-profiler",
+    "retrofit",
+    "retrofit-converter-gson",
+    "retrofit-converter-moshi",
+    "moshi-kotlin",
+    "logger",
+]
+hilt = [
+    "hilt-android",
+    "hilt-compiler",
+]
+glide = [
+    "glide",
+    "glide-compiler",
+    "glide-okhttp-integration",
+]
+firebase = [
+    "firebase-bom",
+    "firebase-analytics-ktx",
+    "firebase-messaging-ktx",
+]

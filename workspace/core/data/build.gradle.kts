@@ -1,8 +1,14 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+//    id("com.android.library")
+//    id("org.jetbrains.kotlin.android")
+//    id("kotlin-kapt")
+//    id("com.google.dagger.hilt.android")
+
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -38,36 +44,33 @@ android {
 dependencies {
     implementation(project(":core:domain"))
 
-    implementation(Dependency.KTX.CORE)
-    implementation(Dependency.AndroidX.APP_COMPAT)
-    implementation(Dependency.Google.MATERIAL)
-    implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.google.android.material)
+    implementation(libs.androidx.constraintlayout)
 
     // test
-    testImplementation(Dependency.Test.JUNIT)
-    testImplementation(Dependency.Coroutines.COROUTINES_TEST)
-    androidTestImplementation(Dependency.AndroidTest.EXT_JUNIT)
-    androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
-    testImplementation("com.google.truth:truth:1.4.3")
-
+    testImplementation(libs.junit)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.truth)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
 
     // dagger hilt
-    implementation(Dependency.DaggerHilt.DAGGER_HILT)
-    kapt(Dependency.DaggerHilt.DAGGER_HILT_COMPILER)
-    kapt(Dependency.DaggerHilt.DAGGER_HILT_ANDROIDX_COMPILER)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     // Retrofit
-    implementation(Dependency.Retrofit.RETROFIT)
-    implementation(Dependency.Retrofit.CONVERTER_GSON)
-    implementation(Dependency.Retrofit.CONVERTER_JAXB)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
 
     // OkHttp
-    implementation(Dependency.OkHttp.OKHTTP)
-    implementation(Dependency.OkHttp.LOGGER_INTERCEPTOR)
-    implementation(Dependency.OkHttp.OKHTTP_PROFILER)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.okhttp.profiler)
 
     // Coroutines
-    implementation(Dependency.Coroutines.COROUTINES)
+//    implementation(Dependency.Coroutines.COROUTINES)
 
     // Serialization
 //    implementation(Dependency.Serialization.KOTLINX_SERIALIZATION_JSON)

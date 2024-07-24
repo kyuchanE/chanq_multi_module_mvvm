@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:background="@color/white"
-        tools:context=".view.MainActivity">
+        tools:context="dev.kyu.home.MainActivity">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,37 +1,33 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-//    id("com.android.application")
-//    id("org.jetbrains.kotlin.android")
-//    id("kotlin-kapt")
-//    id("com.google.dagger.hilt.android")
 
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
-    namespace = "com.example.chanq_mulit_module_mvvm"
-    compileSdk = SdkVersions.compileSdk
+    namespace = "dev.kyu.home"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.chanq_mulit_module_mvvm"
-        minSdk = SdkVersions.minSdk
-        targetSdk = SdkVersions.targetSdk
-        versionCode = AppVersions.androidVersionCode
-        versionName = AppVersions.androidVersionName
+        minSdk = 26
+        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -46,19 +42,18 @@ android {
 
 dependencies {
 
-    implementation(project(":core:domain"))
-    implementation(project(":core:data"))
     implementation(project(":core:ui"))
-    implementation(project(":feature:lottery"))
-    implementation(project(":feature:user"))
-    implementation(project(":feature:home"))
+    implementation(project(":core:domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.android.material)
     implementation(libs.androidx.constraintlayout)
 
+    // test
     testImplementation(libs.junit)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.truth)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
 
@@ -79,16 +74,9 @@ dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
 
-//    implementation(Dependency.AndroidX.LIFECYCLE_VIEW_MODEL)
-
     // LiveData
 //    implementation(Dependency.AndroidX.LIFECYCLE_LIVEDATA)
 
     // Coroutines
 //    implementation(Dependency.Coroutines.COROUTINES)
-
-}
-
-kapt {
-    correctErrorTypes = true
 }
