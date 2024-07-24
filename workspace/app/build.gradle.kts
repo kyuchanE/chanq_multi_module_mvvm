@@ -49,9 +49,10 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":core:ui"))
+    implementation(project(":feature:home"))
     implementation(project(":feature:lottery"))
     implementation(project(":feature:user"))
-    implementation(project(":feature:home"))
+    implementation(project(":navigator"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

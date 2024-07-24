@@ -2,6 +2,8 @@ package dev.kyu.ui.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,4 +56,25 @@ fun View.setShowOrGone(isShow: Boolean): View {
         View.GONE
     }
     return this
+}
+
+inline fun <reified T: Activity> Activity.startActivityWithAnimation(
+    intentBuilder: Intent.() -> Intent = { this },
+    withFinish: Boolean = true
+) {
+    startActivity(Intent(this, T::class.java).intentBuilder())
+    if (Build.VERSION.SDK_INT >= 34) {
+        overrideActivityTransition(
+            Activity.OVERRIDE_TRANSITION_OPEN,
+            android.R.anim.fade_in,
+            android.R.anim.fade_out,
+        )
+    } else {
+        @Suppress("DEPRECATION")
+        overridePendingTransition(
+            android.R.anim.fade_in,
+            android.R.anim.fade_out,
+        )
+    }
+    if (withFinish) finish()
 }

@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -7,12 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.kyu.lottery"
-    compileSdk = SdkVersions.compileSdk
+    namespace = "dev.kyu.navigator"
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = SdkVersions.minSdk
-        targetSdk = SdkVersions.targetSdk
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -27,7 +25,6 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -35,16 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
-
-    implementation(project(":core:ui"))
-    implementation(project(":core:domain"))
-    implementation(project(":navigator"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -55,7 +45,6 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.truth)
-    testImplementation(libs.turbine)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
 
@@ -75,8 +64,4 @@ dependencies {
     // ViewModel
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
-}
-
-kapt {
-    correctErrorTypes = true
 }

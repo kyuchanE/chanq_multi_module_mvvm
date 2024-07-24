@@ -1,6 +1,5 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
@@ -44,6 +43,7 @@ dependencies {
 
     implementation(project(":core:ui"))
     implementation(project(":core:domain"))
+    implementation(project(":navigator"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
