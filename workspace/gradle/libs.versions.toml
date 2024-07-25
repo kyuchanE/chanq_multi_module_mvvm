@@ -52,6 +52,9 @@ firebaseBom = "32.3.1"
 # Lottie
 lottie = "6.4.0"
 
+androidTools = "31.4.1"
+ksp = "2.0.0-1.0.21"
+
 # Plugins
 androidApplicationPlugin = "8.0.0"
 androidLibraryPlugin = "8.0.0"
@@ -121,6 +124,12 @@ firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx"
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 # Lottie
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidApplicationPlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlinAndroidPlugin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplicationPlugin" }

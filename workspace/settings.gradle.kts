@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -6,21 +7,17 @@ pluginManagement {
     }
 }
 
-//enableFeaturePreview("VERSION_CATALOGS")
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
     }
-//    versionCatalogs {
-//        create("libs") {
-//            from(files("libs.versions.toml"))
-//        }
-//    }
 }
+
 rootProject.name = "Chanq_mulit_module_mvvm"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":core:data")
 include(":core:domain")
